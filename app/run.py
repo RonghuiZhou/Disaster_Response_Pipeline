@@ -1,9 +1,13 @@
 import json
 import plotly
 import pandas as pd
+import re
 
+import nltk
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords
+nltk.download(['punkt', 'wordnet','stopwords'])
 
 from flask import Flask
 from flask import render_template, request, jsonify
@@ -15,7 +19,24 @@ from sqlalchemy import create_engine
 app = Flask(__name__)
 
 def tokenize(text):
+    """
+	process text data: text extraction, tokenization, lemmatization, & stopwords removal
+	Args:
+		text: input the
+	
+	Returns:
+		clean tokens
+	
+	"""
+	 
+    # extrac text based on the pattern
+    text = re.sub(r"[^a-zA-Z0-9]", " ", text)
+    
+    # get tokens and remove stopwords
     tokens = word_tokenize(text)
+    tokens = [w for w in tokens if w not in stopwords.words("english")]
+    
+	# text normalization: get the root stem
     lemmatizer = WordNetLemmatizer()
 
     clean_tokens = []
@@ -26,11 +47,13 @@ def tokenize(text):
     return clean_tokens
 
 # load data
-engine = create_engine('sqlite:///../data/YourDatabaseName.db')
-df = pd.read_sql_table('YourTableName', engine)
+# create an engine
+engine = create_engine('sqlite:///{}'.format(database_filepath)
+# read the data into a pandas dataframe
+df = pd.read_sql_table(database_filepath[:-2], engine)
 
 # load model
-model = joblib.load("../models/your_model_name.pkl")
+model = joblib.load("../model/classifier.pkl")
 
 
 # index webpage displays cool visuals and receives user input text for model
