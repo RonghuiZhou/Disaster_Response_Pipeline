@@ -3,20 +3,27 @@
 
 #### [Ronghui Zhou](https://www.linkedin.com/in/ronghuizhou/); zhou.uf@gmail.com; Jan. 2020     
 
+## **1. Installing**
+   Clone this GIT repository:
+
+          git clone https://github.com/RonghuiZhou/Disaster_Response_Pipeline.git
+
+
+
 ## **2. Instructions:**
 
 - Step 1: Run the followihng commands in the project's root directory to set up your database and model.      
           1.1: Run ETL pipeline and clean the data and store in the databse:     
-                  ```
+                  ```python
                   python data/process_data.py data/messages.csv data/categories.csv data/DisasterResponse.db                
                   ```                         
           1.2: Run ML pipeline that trains classifier and saves the model:            
-                  ```
+                  ```python
                   python models/strain_classifier.py data/DisasterResponse.db models/classifier.pkl
                   ```         
 
 - Step 2: Run the following command to run your web app:         
-        ```
+        ```python
         python app/run.py
         ```
 
