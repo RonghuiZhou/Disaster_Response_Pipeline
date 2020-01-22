@@ -48,12 +48,12 @@ def tokenize(text):
 
 # load data
 # create an engine
-engine = create_engine('sqlite:///{}'.format(database_filepath)
+engine = create_engine('sqlite:///../data/DisasterResponse.db')
 # read the data into a pandas dataframe
-df = pd.read_sql_table(database_filepath[:-2], engine)
+df = pd.read_sql_table('DisasterResponse', engine)
 
 # load model
-model = joblib.load("../model/classifier.pkl")
+model = joblib.load("../models/classifier.pkl")
 
 
 # index webpage displays cool visuals and receives user input text for model
@@ -66,6 +66,18 @@ def index():
     genre_counts = df.groupby('genre').count()['message']
     genre_names = list(genre_counts.index)
     
+
+    # Calculate proportion of each category with label = 1
+
+    cat_props = df.drop(['id', 'message', 'original', 'genre'], axis = 1).sum()/len(df)
+    cat_props = cat_props.sort_values(ascending = False)
+    cat_names = list(cat_props.index)
+
+    # Get occurence of each type
+    df_copy = df.copy()
+    counts_percentage = df_copy.drop(['id', 'message', 'original', 'genre'], axis = 1).sum()/len(df)
+    counts_percentage = counts_percentage.sort_values(ascending = False)
+    df_copy_cols = df_copy.columns													  
     # create visuals
     # TODO: Below is an example - modify to create your own visuals
     graphs = [
@@ -86,9 +98,29 @@ def index():
                     'title': "Genre"
                 }
             }
+        },
+
+            {
+            'data': [
+                Bar(
+                    x=df_copy_cols,
+                    y=counts_percentage
+                )
+            ],
+
+            'layout': {
+                'title': 'Distribution of Tags',
+                'yaxis': {
+                    'title': "%"
+                },
+                'xaxis': {
+                    'title': "Tags",
+                    'tickangle': -45
+                }
+            }
         }
-    ]
-    
+    ]		  
+
     # encode plotly graphs in JSON
     ids = ["graph-{}".format(i) for i, _ in enumerate(graphs)]
     graphJSON = json.dumps(graphs, cls=plotly.utils.PlotlyJSONEncoder)
