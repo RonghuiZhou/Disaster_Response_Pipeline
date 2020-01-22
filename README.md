@@ -17,12 +17,12 @@
                   ```python
                      python data/process_data.py data/messages.csv data/categories.csv data/DisasterResponse.db                
                   ```                         
-          <p>&nbsp;</p>
+        
           1.2: Run ML pipeline which trains classifier and saves the model:            
                   ```python
                      python models/strain_classifier.py data/DisasterResponse.db models/classifier.pkl
                   ```         
-
+  <p>&nbsp;</p>
 - Step 2: Run the following command to run your web app:         
         ```python
         python app/run.py
