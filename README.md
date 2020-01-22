@@ -26,8 +26,8 @@
 ├── app
 │   ├── run.py--------------------------------------# flask file to run app
 │   ├── screenshots
-│ 	│	├── overview_of_training_dataset.png----------# screenshot of web app: overview of training dataset
-│   │ 	└──	classify_message.png--------------------# screenshot of web app: classify message
+│   │	├── overview_of_training_dataset.png--------# screenshot of web app: overview of training dataset
+│   │ 	└── classify_message.png--------------------# screenshot of web app: classify message
 │   └── templates
 │       ├── go.html---------------------------------# classification result page of web app
 │       └── master.html-----------------------------# main page of web app
