@@ -1,23 +1,25 @@
 # Disaster Response Pipeline
 ### Disaster Response Pipelines Built for Data Scientist Nanodegree on Udacity
 
-#### Ronghui Zhou; zhou.uf@gmail.com; Jan. 2020 
-[LinkedIn](https://www.linkedin.com/in/ronghuizhou/)
+#### Ronghui Zhou; zhou.uf@gmail.com; [LinkedIn](https://www.linkedin.com/in/ronghuizhou/); Jan. 2020 
+
+## **2. Instructions:**
+
+- Step 1: Run the followihng commands in the project's root directory to set up your database and model.
+        
+      - Step 1.1: Run ETL pipeline and clean the data and store in the databse: 
+                  python data/process_data.py data/messages.csv data/categories.csv data/DisasterResponse.db
+      - Step 1.2: Run ML pipeline that trains classifier and saves the model:
+                  python models/strain_classifier.py data/DisasterResponse.db models/classifier.pkl
+
+- Step 2: Run the following command to run your web app:
+          python app/run.py
+
+- Step 3: Go to http://localhost:2020
 
 
-The screen shots of the web app are below:
 
-**_Screenshot 1: overview of training dataset_**
-
-![Overview of training dataset](/app/screenshots/overview_of_training_dataset.png)
-
-**_Screenshot 2: classify message_**
-
-![Classify message](/app/screenshots/classify_message.png)
-
-<a id='files'></a>
-
-<pre>
+## **3. File structure**
 .
 ├── app
 │   ├── run.py--------------------------------------# flask file to run app
@@ -39,7 +41,18 @@ The screen shots of the web app are below:
 │   ├── ETL Pipeline Preparation.ipynb--------------# Jupyter notebook for ETL 
 │   └── ML Pipeline Preparation.ipynb---------------# Jupyter notebook for ML
 
-</pre>
 
 
-## Instructions:
+## **4. Screenshots:**
+
+The screen shots of the web app are below:
+
+**_Screenshot 1: overview of training dataset_**
+
+![Overview of training dataset](/app/screenshots/overview_of_training_dataset.png)
+
+**_Screenshot 2: classify message_**
+
+![Classify message](/app/screenshots/classify_message.png)
+
+
