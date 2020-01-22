@@ -7,15 +7,12 @@
 
 The screen shots of the web app are below:
 
-**_Screenshot 1_**
-
-![screenshot1](/app/screenshots/overview_of_training_dataset.png)
+**_Screenshot 1: overview of training dataset_**
 
 ![Overview of training dataset](/app/screenshots/overview_of_training_dataset.png)
 
-**_Screenshot 2_**
+**_Screenshot 2: classify message_**
 
-![screenshot2](/app/screenshots/classify_message.png)
 ![Classify message](/app/screenshots/classify_message.png)
 
 <a id='files'></a>
