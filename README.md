@@ -9,14 +9,14 @@ The screen shots of the web app are below:
 
 **_Screenshot 1_**
 
-![screenshot1](/app/screenshots/overview of training dataset.png)
+![screenshot1](/app/screenshots/overview_of_training_dataset.png)
 
-
+![Overview of training dataset](/app/screenshots/overview_of_training_dataset.png)
 
 **_Screenshot 2_**
 
-![screenshot2](/app/screenshots/classify message.png)
-
+![screenshot2](/app/screenshots/classify_message.png)
+![Classify message](/app/screenshots/classify_message.png)
 
 <a id='files'></a>
 
@@ -25,8 +25,8 @@ The screen shots of the web app are below:
 ├── app
 │   ├── run.py--------------------------------------# flask file to run app
 │   ├── screenshots
-│ 	│	├── overview of training dataset.png--------# screenshot of web app: overview of training dataset
-│   │ 	└──	classify message.png--------------------# screenshot of web app: classify message
+│ 	│	├── overview_of_training_dataset.png--------# screenshot of web app: overview of training dataset
+│   │ 	└──	classify_message.png--------------------# screenshot of web app: classify message
 │   └── templates
 │       ├── go.html---------------------------------# classification result page of web app
 │       └── master.html-----------------------------# main page of web app
