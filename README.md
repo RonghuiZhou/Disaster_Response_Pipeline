@@ -9,11 +9,12 @@
         
       - Step 1.1: Run ETL pipeline and clean the data and store in the databse: 
                   python data/process_data.py data/messages.csv data/categories.csv data/DisasterResponse.db
+      
       - Step 1.2: Run ML pipeline that trains classifier and saves the model:
                   python models/strain_classifier.py data/DisasterResponse.db models/classifier.pkl
 
 - Step 2: Run the following command to run your web app:
-          python app/run.py
+       python app/run.py
 
 - Step 3: Go to http://localhost:2020
 
