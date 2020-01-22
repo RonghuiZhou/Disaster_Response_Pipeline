@@ -1,20 +1,21 @@
 # Disaster Response Pipeline
 ### Disaster Response Pipelines Built for Data Scientist Nanodegree on Udacity
 
-#### Ronghui Zhou; zhou.uf@gmail.com; Jan. 2020
+#### Ronghui Zhou; zhou.uf@gmail.com; Jan. 2020 
+[LinkedIn](https://www.linkedin.com/in/ronghuizhou/)
 
 
 The screen shots of the web app are below:
 
 **_Screenshot 1_**
 
-![screenshot1](app/screenshots/overview of training dataset.png)
+![screenshot1](/app/screenshots/overview of training dataset.png)
 
 
 
 **_Screenshot 2_**
 
-![screenshot2](app/screenshots/classify message.png)
+![screenshot2](/app/screenshots/classify message.png)
 
 
 <a id='files'></a>
