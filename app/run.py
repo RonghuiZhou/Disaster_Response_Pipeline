@@ -13,6 +13,7 @@ nltk.download(['punkt', 'wordnet','stopwords'])
 from flask import Flask
 from flask import render_template, request, jsonify
 from plotly.graph_objs import Bar
+from plotly.graph_objs import Histogram
 from sklearn.externals import joblib
 from sqlalchemy import create_engine
 
@@ -71,8 +72,11 @@ def index():
     # Get occurence of each type
     df_copy = df.copy()
     counts_percentage = df_copy.iloc[:,4:].sum()/len(df)
-    counts_top10 = counts_percentage.sort_values(ascending = False)[:10]
-    df_copy_cols = df_copy.columns													  
+    col_names=df.iloc[:,4:].columns
+    counts_top10=list(zip(col_names,counts_percentage))
+    counts_top10_df=pd.DataFrame(counts_top10,columns=['Category','percentage'])
+    counts_top10 = counts_top10_df.sort_values('percentage', ascending = False)[:10]
+
    
     # Get top 10 words
        
@@ -80,16 +84,22 @@ def index():
 
     stop_words = stopwords.words('english')
     punct = [p for p in string.punctuation]
-
-
-    for message in df['message']:
+    
+    
+    for message in df['message']:    
+        
         for word in message.split():           
             if word.lower() not in stop_words and word.lower() not in punct:
                 if word in top_words:
                     top_words[word] += 1
                 else:
                     top_words[word] = 1
+                       
+    # get the number of words in each message
+    df['message_len']=df['message'].apply(str.strip).apply(len)
+    df['word_count']=df['message'].str.replace('[{}]'.format(string.punctuation), ' ').apply(str.split).apply(len)
     
+
     ax_2 = pd.DataFrame.from_dict(top_words, orient = 'index')
     ax_2.columns = ['Counts']
     top10_words_pct = ax_2.sort_values('Counts', ascending = False)[:10]['Counts']/len(df)
@@ -122,8 +132,9 @@ def index():
             {
             'data': [
                 Bar(
-                    x=df_copy_cols,
-                    y=counts_top10
+                    x=counts_top10['Category'],
+                    y=counts_top10['percentage']
+                    
                 )
             ],
 
@@ -134,7 +145,7 @@ def index():
                 },
                 'xaxis': {
                     'title': "Category",
-                    'tickangle': -45
+                    'tickangle': 0
                 }
             }
         }
@@ -161,8 +172,111 @@ def index():
             }
         }
 
+ 
+     , {
+            'data': [
+                Bar(
+                    x=df.genre.unique(),
+                    y=df.groupby('genre').message_len.mean()
+                )
+            ],
+
+            'layout': {
+                'title': 'How Many Characters in a Message?',
+                'yaxis': {
+                    'title': "Average number of characters"
+                },
+                'xaxis': {
+                    'title': "Genre"
+                }
+            }
+        }
+
         
-      
+        
+        
+              
+ 
+      , {
+            'data': [
+                Histogram(                    
+                    x=df['message_len']
+                    
+                   
+                )
+            ],
+
+            'layout': {
+                'title': 'Distribution of Number of Characters in a Message',
+                'yaxis': {
+                    'title': "Count"
+                    
+                },
+                'xaxis': {
+                    'title': "Number of characters in a message",
+                    'range': [0,500]                  
+                   
+                },
+                
+                'xbins': 10
+                
+            }
+        }
+ 
+        
+        
+     , {
+            'data': [
+                Bar(
+                    x=df.genre.unique(),
+                    y=df.groupby('genre').word_count.mean()
+                )
+            ],
+
+            'layout': {
+                'title': 'How Many Words in a Message?',
+                'yaxis': {
+                    'title': "Average number of words"
+                },
+                'xaxis': {
+                    'title': "Genre"
+                }
+            }
+        }
+
+        
+        
+        
+              
+ 
+      , {
+            'data': [
+                Histogram(                    
+                    x=df['word_count']                    
+                   
+                )
+            ],
+
+            'layout': {
+                'title': 'Distribution of Number of Words in a Message',
+                'yaxis': {
+                    'title': "Count"
+                    
+                },
+                'xaxis': {
+                    'title': "Number of words in a message",
+                    'range': [0,80]                  
+                   
+                },
+                
+                'xbins': 10
+                
+            }
+        }
+
+        
+        
+        
         
         
     ]		  
@@ -194,7 +308,7 @@ def go():
 
 
 def main():
-    app.run(host='0.0.0.0', port=3001, debug=True)
+    app.run(host='localhost', port=2020, debug=True)
 
 
 if __name__ == '__main__':
