@@ -15,13 +15,12 @@
 - Step 1: Run the followihng commands in the project's root directory to set up your database and model.      
           1.1: Run ETL pipeline which cleans the data and stores in the database:     
                   ```python
-                     python data/process_data.py data/messages.csv data/categories.csv data/DisasterResponse.db                
+                     python data/process_data.py data/messages.csv data/categories.csv data/DisasterResponse.db                        
                   ```                            
           1.2: Run ML pipeline which trains classifier and saves the model:            
                   ```python
                      python models/strain_classifier.py data/DisasterResponse.db models/classifier.pkl
-                  ```         
-  <p>&nbsp;</p>
+                  ```          
 - Step 2: Run the following command to run your web app:         
         ```python
         python app/run.py
