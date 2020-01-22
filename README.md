@@ -1,21 +1,19 @@
 # Disaster Response Pipeline
-### Disaster Response Pipelines Built for Data Scientist Nanodegree on Udacity
+### Disaster Response Pipelines Built for Data Scientist Nanodegree on [Udacity](https://www.udacity.com/)
 
-#### Ronghui Zhou; zhou.uf@gmail.com; [LinkedIn](https://www.linkedin.com/in/ronghuizhou/); Jan. 2020 
+#### [Ronghui Zhou](https://www.linkedin.com/in/ronghuizhou/); zhou.uf@gmail.com; Jan. 2020     
 
 ## **2. Instructions:**
 
 - Step 1: Run the followihng commands in the project's root directory to set up your database and model.
-        
-      - Step 1.1: Run ETL pipeline and clean the data and store in the databse:         
+          1.1: Run ETL pipeline and clean the data and store in the databse: 
                   ```
                   python data/process_data.py data/messages.csv data/categories.csv data/DisasterResponse.db    
                   ```
-      
-      - Step 1.2: Run ML pipeline that trains classifier and saves the model:
+          1.2: Run ML pipeline that trains classifier and saves the model:
                   ```
                   python models/strain_classifier.py data/DisasterResponse.db models/classifier.pkl
-                  ```
+                  ```         
 
 - Step 2: Run the following command to run your web app:         
         ```
