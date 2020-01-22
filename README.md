@@ -21,7 +21,8 @@
 
 
 ## **3. File structure**
-.
+<pre>
+
 ├── app
 │   ├── run.py--------------------------------------# flask file to run app
 │   ├── screenshots
@@ -42,7 +43,7 @@
 │   ├── ETL Pipeline Preparation.ipynb--------------# Jupyter notebook for ETL 
 │   └── ML Pipeline Preparation.ipynb---------------# Jupyter notebook for ML
 
-
+</pre>
 
 ## **4. Screenshots:**
 
