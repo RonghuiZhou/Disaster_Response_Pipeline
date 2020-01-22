@@ -2,6 +2,7 @@ import json
 import plotly
 import pandas as pd
 import re
+import string
 
 import nltk
 from nltk.stem import WordNetLemmatizer
@@ -67,17 +68,35 @@ def index():
     genre_names = list(genre_counts.index)
     
 
-    # Calculate proportion of each category with label = 1
-
-    cat_props = df.drop(['id', 'message', 'original', 'genre'], axis = 1).sum()/len(df)
-    cat_props = cat_props.sort_values(ascending = False)
-    cat_names = list(cat_props.index)
-
     # Get occurence of each type
     df_copy = df.copy()
-    counts_percentage = df_copy.drop(['id', 'message', 'original', 'genre'], axis = 1).sum()/len(df)
-    counts_percentage = counts_percentage.sort_values(ascending = False)
+    counts_percentage = df_copy.iloc[:,4:].sum()/len(df)
+    counts_top10 = counts_percentage.sort_values(ascending = False)[:10]
     df_copy_cols = df_copy.columns													  
+   
+    # Get top 10 words
+       
+    top_words = {}
+
+    stop_words = stopwords.words('english')
+    punct = [p for p in string.punctuation]
+
+
+    for message in df['message']:
+        for word in message.split():           
+            if word.lower() not in stop_words and word.lower() not in punct:
+                if word in top_words:
+                    top_words[word] += 1
+                else:
+                    top_words[word] = 1
+    
+    ax_2 = pd.DataFrame.from_dict(top_words, orient = 'index')
+    ax_2.columns = ['Counts']
+    top10_words_pct = ax_2.sort_values('Counts', ascending = False)[:10]['Counts']/len(df)
+    top10_words = list(ax_2.sort_values('Counts', ascending = False)[:10].index)   
+
+
+
     # create visuals
     # TODO: Below is an example - modify to create your own visuals
     graphs = [
@@ -104,21 +123,48 @@ def index():
             'data': [
                 Bar(
                     x=df_copy_cols,
-                    y=counts_percentage
+                    y=counts_top10
                 )
             ],
 
             'layout': {
-                'title': 'Distribution of Tags',
+                'title': 'Top 10 Categories',
                 'yaxis': {
                     'title': "%"
                 },
                 'xaxis': {
-                    'title': "Tags",
+                    'title': "Category",
                     'tickangle': -45
                 }
             }
         }
+        
+     
+        
+        
+     , {
+            'data': [
+                Bar(
+                    x=top10_words,
+                    y=top10_words_pct
+                )
+            ],
+
+            'layout': {
+                'title': 'Top 10 Most Used Words',
+                'yaxis': {
+                    'title': "%"
+                },
+                'xaxis': {
+                    'title': "Word"
+                }
+            }
+        }
+
+        
+      
+        
+        
     ]		  
 
     # encode plotly graphs in JSON
