@@ -3,3 +3,28 @@
 Ronghui Zhou, zhou.uf@gmail.com
 
 Jan. 2020
+
+
+
+<pre>
+.
+├── app
+│   ├── run.py------------------------# flask file to run app
+│   ├── imag_webapp_1		# screenshot of web app
+│   ├── imag_webapp_2 		# screenshot of web app
+│   └── templates
+│       ├── go.html-------------------# classification result page of web app
+│       └── master.html---------------# main page of web app
+├── data
+│   ├── DisasterResponse.db-----------# database to save cleaned data
+│   ├── categories.csv-------# raw data to process
+│   ├── messages.csv---------# raw data to process
+│   └── process_data.py---------------# perform ETL pipline
+├── model
+│   ├── train_classifier.py-----------# perform classification pipeline
+│   └── classifier.pkl		-----------# classifier result
+├── notebook
+│   ├── ETL Pipeline Preparation.ipynb----------# Jupyter notebook for ETL 
+│   └── ML Pipeline Preparation.ipynb-----------# Jupyter notebook for ML
+
+</pre>
