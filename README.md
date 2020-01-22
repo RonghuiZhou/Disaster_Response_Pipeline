@@ -13,11 +13,12 @@
 ## **2. Instructions:**
 
 - Step 1: Run the followihng commands in the project's root directory to set up your database and model.      
-          1.1: Run ETL pipeline and clean the data and store in the databse:     
+          1.1: Run ETL pipeline which cleans the data and stores in the database:     
                   ```python
                      python data/process_data.py data/messages.csv data/categories.csv data/DisasterResponse.db                
                   ```                         
-          1.2: Run ML pipeline that trains classifier and saves the model:            
+          <p>&nbsp;</p>
+          1.2: Run ML pipeline which trains classifier and saves the model:            
                   ```python
                      python models/strain_classifier.py data/DisasterResponse.db models/classifier.pkl
                   ```         
