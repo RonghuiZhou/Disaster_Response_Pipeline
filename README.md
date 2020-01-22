@@ -1,30 +1,30 @@
 # Disaster Response Pipeline
 ### Disaster Response Pipelines Built for Data Scientist Nanodegree on Udacity
-Ronghui Zhou, zhou.uf@gmail.com
 
-Jan. 2020
+#### Ronghui Zhou; zhou.uf@gmail.com; Jan. 2020
 
 
 
 <pre>
 .
 ├── app
-│   ├── run.py------------------------# flask file to run app
-│   ├── imag_webapp_1		# screenshot of web app
-│   ├── imag_webapp_2 		# screenshot of web app
+│   ├── run.py--------------------------------------# flask file to run app
+│   ├── screenshots
+│ 	│	├──	overview of training dataset.png--------# screenshot of web app: overview of training dataset
+│   │ 	└──	classify message.png--------------------# screenshot of web app: classify message
 │   └── templates
-│       ├── go.html-------------------# classification result page of web app
-│       └── master.html---------------# main page of web app
+│       ├── go.html---------------------------------# classification result page of web app
+│       └── master.html-----------------------------# main page of web app
 ├── data
-│   ├── DisasterResponse.db-----------# database to save cleaned data
-│   ├── categories.csv-------# raw data to process
-│   ├── messages.csv---------# raw data to process
-│   └── process_data.py---------------# perform ETL pipline
+│   ├── DisasterResponse.db-------------------------# database to save cleaned data
+│   ├── categories.csv------------------------------# raw data to process: categories
+│   ├── messages.csv--------------------------------# raw data to process: messages
+│   └── process_data.py-----------------------------# perform ETL pipline
 ├── model
-│   ├── train_classifier.py-----------# perform classification pipeline
-│   └── classifier.pkl		-----------# classifier result
+│   ├── train_classifier.py-------------------------# perform classification pipeline
+│   └── classifier.pkl------------------------------# optimized ML model saved
 ├── notebook
-│   ├── ETL Pipeline Preparation.ipynb----------# Jupyter notebook for ETL 
-│   └── ML Pipeline Preparation.ipynb-----------# Jupyter notebook for ML
+│   ├── ETL Pipeline Preparation.ipynb--------------# Jupyter notebook for ETL 
+│   └── ML Pipeline Preparation.ipynb---------------# Jupyter notebook for ML
 
 </pre>
