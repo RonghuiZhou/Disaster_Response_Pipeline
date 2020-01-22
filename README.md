@@ -10,8 +10,7 @@
                   ```
                   python data/process_data.py data/messages.csv data/categories.csv data/DisasterResponse.db                
                   ```                         
-          1.2: Run ML pipeline that trains classifier and saves the model:             
-  
+          1.2: Run ML pipeline that trains classifier and saves the model:            
                   ```
                   python models/strain_classifier.py data/DisasterResponse.db models/classifier.pkl
                   ```         
