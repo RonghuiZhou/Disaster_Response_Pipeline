@@ -7,15 +7,12 @@
 
 The screen shots of the web app are below:
 
-**_Screenshot 1_**
-
-![screenshot1](/app/screenshots/overview_of_training_dataset.png)
+**_Screenshot 1: overview of training dataset_**
 
 ![Overview of training dataset](/app/screenshots/overview_of_training_dataset.png)
 
-**_Screenshot 2_**
+**_Screenshot 2: classify message_**
 
-![screenshot2](/app/screenshots/classify_message.png)
 ![Classify message](/app/screenshots/classify_message.png)
 
 <a id='files'></a>
@@ -25,7 +22,7 @@ The screen shots of the web app are below:
 ├── app
 │   ├── run.py--------------------------------------# flask file to run app
 │   ├── screenshots
-│ 	│	├── overview_of_training_dataset.png--------# screenshot of web app: overview of training dataset
+│ 	│	├── overview_of_training_dataset.png----------# screenshot of web app: overview of training dataset
 │   │ 	└──	classify_message.png--------------------# screenshot of web app: classify message
 │   └── templates
 │       ├── go.html---------------------------------# classification result page of web app
