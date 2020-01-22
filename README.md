@@ -1,7 +1,11 @@
 # Disaster Response Pipeline
-### Disaster Response Pipelines Built for Data Scientist Nanodegree on [Udacity](https://www.udacity.com/)
+### Data Scientist Nanodegree on [Udacity](https://www.udacity.com/); Data source from [Figure Eight](https://www.figure-eight.com/)
+
 
 #### [Ronghui Zhou](https://www.linkedin.com/in/ronghuizhou/); Jan. 2020     
+
+## **Motivation**
+Following natural disasters, there are usually tons of overwhelming messages. The goal of this project is to build a data processing and interpretation pipeline to speed up the resource allocation process. Time is life!
 
 ## **1. Installing**
    Clone this GIT repository:
@@ -57,7 +61,7 @@
 
 ## **4. Screenshots:**
 
-The screen shots of the web app are below:
+The screenshots of the web app are below:
 
 **_Screenshot 1: overview of training dataset_**
 
