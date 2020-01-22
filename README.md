@@ -7,7 +7,7 @@
 ## **Motivation**
 Following natural disasters, there are usually tons of overwhelming messages. The goal of this project is to build a data processing and interpretation pipeline to speed up the resource allocation process. Time is life!
 
-## **1. Installing**
+## **1. Installation**
    Clone this GIT repository:
 
           git clone https://github.com/RonghuiZhou/Disaster_Response_Pipeline.git
