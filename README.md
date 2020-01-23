@@ -23,7 +23,7 @@ Following natural disasters, there are usually tons of overwhelming messages. Th
                   ```                            
           1.2: Run ML pipeline which trains classifier and saves the model:            
                   ```python
-                     models/strain_classifier.py data/DisasterResponse.db models/classifier.pkl
+                     models/train_classifier.py data/DisasterResponse.db models/classifier.pkl
                   ```          
 - Step 2: Run the following command to run your web app:         
         ```python
