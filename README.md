@@ -23,6 +23,7 @@ Following natural disasters, there are usually tons of overwhelming messages. Th
 ## **2. How to run:**
 
 - Step 1: Run the followihng commands in the project's root directory to set up your database and model.      
+
 1.1: Run ETL pipeline which cleans the data and stores in the database:     
                   ```python
                      data/process_data.py data/messages.csv data/categories.csv data/DisasterResponse.db                        
