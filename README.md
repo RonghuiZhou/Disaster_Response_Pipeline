@@ -8,11 +8,12 @@
 Following natural disasters, there are usually tons of overwhelming messages. The goal of this project is to build a data processing and interpretation pipeline to speed up the resource allocation process. Time is life!
 
 ## **1. Installation**
-   Clone this GIT repository:
+   1.1 Clone this GIT repository:
 
           git clone https://github.com/RonghuiZhou/Disaster_Response_Pipeline.git
 
-
+   1.2 Delete (or move to some other place) these two files: data/DisasterResponse.db & models/classifier.pkl
+      
 
 ## **2. Instructions:**
 
@@ -23,7 +24,7 @@ Following natural disasters, there are usually tons of overwhelming messages. Th
                   ```                            
           1.2: Run ML pipeline which trains classifier and saves the model:            
                   ```python
-                     models/strain_classifier.py data/DisasterResponse.db models/classifier.pkl
+                     models/train_classifier.py data/DisasterResponse.db models/classifier.pkl
                   ```          
 - Step 2: Run the following command to run your web app:         
         ```python
@@ -50,7 +51,7 @@ Following natural disasters, there are usually tons of overwhelming messages. Th
 │   ├── categories.csv------------------------------# raw data to process: categories
 │   ├── messages.csv--------------------------------# raw data to process: messages
 │   └── process_data.py-----------------------------# perform ETL pipline
-├── model
+├── models
 │   ├── train_classifier.py-------------------------# perform classification pipeline
 │   └── classifier.pkl------------------------------# optimized ML model saved
 ├── notebook
