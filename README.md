@@ -23,13 +23,13 @@ Following natural disasters, there are usually tons of overwhelming messages. Th
 ## **2. How to run:**
 
 - Step 1: Run the followihng commands in the project's root directory to set up your database and model.      
-        1.1: Run ETL pipeline which cleans the data and stores in the database:     
+1.1: Run ETL pipeline which cleans the data and stores in the database:     
                   ```python
                      data/process_data.py data/messages.csv data/categories.csv data/DisasterResponse.db                        
                   ```                              
-		  	The two data files (messages.csv and categories.csv) will be merged into one dataset, categories are separated into each column, unrelated information is dropped and values converted to numeric values either 0 or 1. Duplicates will be dropped and the cleaned data will be saved to a sqlite database to feed into the machine learning pipeline.      
+<p>The two data files (messages.csv and categories.csv) will be merged into one dataset, categories are separated into each column, unrelated information is dropped and values converted to numeric values either 0 or 1. Duplicates will be dropped and the cleaned data will be saved to a sqlite database to feed into the machine learning pipeline.</p>      
 		  
-	1.2: Run ML pipeline (Logistic Regression and grid search to optimize hyperparameters from Scikit-learn) which trains classifier and saves the model:            
+1.2: Run ML pipeline (Logistic Regression and grid search to optimize hyperparameters from Scikit-learn) which trains classifier and saves the model:            
                   ```python
                      models/train_classifier.py data/DisasterResponse.db models/classifier.pkl
                   ```            
