@@ -43,9 +43,9 @@ Following natural disasters, there are usually tons of overwhelming messages. Th
 ## **3. File structure**
 <pre>
 
-├──README.md---------------------------------------# Read this file for all details
+├── README.md---------------------------------------# Read this file for all details
 │
-├──library_requirement.txt-------------------------# A list of libraries in the environment
+├── library_requirement.txt-------------------------# A list of libraries in the environment
 │
 ├── app
 │   ├── run.py--------------------------------------# flask file to run app
