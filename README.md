@@ -8,11 +8,16 @@
 Following natural disasters, there are usually tons of overwhelming messages. The goal of this project is to build a data processing and interpretation pipeline to speed up the resource allocation process. Time is life!
 
 ## **1. Installation**
-   1.1 Clone this GIT repository:
+   1.1 Install [Anaconda](https://www.anaconda.com/) if it is not installed, go to step 1.2 otherwise
+   1.2 Update all libraries in Anaconda Prompt
+				```
+                conda update -all                           
+                ```  
+   1.3 Clone this GIT repository:
 
           git clone https://github.com/RonghuiZhou/Disaster_Response_Pipeline.git
 
-   1.2 Delete (or move to some other place) these two files: data/DisasterResponse.db & models/classifier.pkl
+   1.4 Delete (or move to some other place) these two files: data/DisasterResponse.db & models/classifier.pkl
       
 
 ## **2. Instructions:**
