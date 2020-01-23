@@ -22,7 +22,7 @@ Following natural disasters, there are usually tons of overwhelming messages. Th
 
 ## **2. How to run:**
 
-- Step 1: Run the followihng commands in the project's root directory to set up your database and model.      
+- **Step 1:** Run the followihng commands in the project's root directory to set up your database and model.      
 
 1.1: Run ETL pipeline which cleans the data and stores in the database:     
                   ```python
@@ -36,12 +36,12 @@ Following natural disasters, there are usually tons of overwhelming messages. Th
                   ```            
 <p>The cleaned data from previous step (ETL pipeline) will be loaded and messages will be used as the features. Natural language processing toolkit (nltk) will be employed to understand the message after some cleaning, including dropped unrelated characters other than alphabets and numbers, separate into individual words, drop common meaningless stopwords. The goal is to interpret the message and assign related categories to the message so relavant teams will respond promptly. Logistic regression classification model is used here together with TF-IDF technique.</p> 
 				
-- Step 2: Run the following command to run your web app:         
+- **Step 2:** Run the following command to run your web app:         
         ```python
         app/run.py
         ```
 
-- Step 3: Go to http://localhost:2020
+- **Step 3:** Go to http://localhost:2020
 
 
 
