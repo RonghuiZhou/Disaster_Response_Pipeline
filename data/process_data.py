@@ -15,8 +15,7 @@ def load_data(messages_filepath, categories_filepath):
 	Return:
 		df: a merged pandas dataframe contain messages and categories		
 	"""
-	
-    messages = pd.read_csv(messages_filepath)
+	messages = pd.read_csv(messages_filepath)    
 	categories = pd.read_csv(categories_filepath)
 	df = messages.merge(categories, on='id')
 	return df
@@ -69,8 +68,7 @@ def clean_data(df):
 	
 	# drop the 'child_alone' column since it has the same value for all rows
 	df.drop(['child_alone'],axis=1,inplace=True)
-	
-    return df
+	return df
 
 
 def save_data(df, database_filename):
@@ -81,10 +79,8 @@ def save_data(df, database_filename):
 		df: the pandas dataframe to be saved
 		database_filename: the name for the sqlite database file		
 	"""
-	engine = create_engine('sqlite:///{}'.format(database_filename))
-    df.to_sql(database_filename[:-2], engine, index=False)
-	
-
+    engine = create_engine('sqlite:///{}'.format(database_filename))
+    df.to_sql('DisasterResponse', engine, index=False)
 
 def main():
     if len(sys.argv) == 4:

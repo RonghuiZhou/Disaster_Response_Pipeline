@@ -6,7 +6,6 @@ import numpy as np
 import pandas as pd
 from sqlalchemy import create_engine
 import matplotlib.pyplot as plt
-%matplotlib inline
 
 import re
 
@@ -39,10 +38,9 @@ def load_data(database_filepath):
 		category_names: labels	
 	"""
 	# create an engine
-    engine = create_engine('sqlite:///{}'.format(database_filepath)
+	engine = create_engine('sqlite:///{}'.format(database_filepath)) 
 	# read the data into a pandas dataframe
-	df = pd.read_sql_table(database_filepath[:-2], engine)
-	
+	df = pd.read_sql_table('DisasterResponse', engine)
 	# define feature
 	X = df['message']
 	
@@ -89,15 +87,14 @@ def build_model():
 	build a machine learning pipeline
 	
 	"""
-    pipeline = Pipeline([("vect",CountVectorizer(tokenizer=tokenize)),
-                     ("tfidf",TfidfTransformer()),
-                     ("clf", MultiOutputClassifier(LogisticRegression()))])
-
-    parameters = {
+	pipeline = Pipeline([("vect",CountVectorizer(tokenizer=tokenize)),
+                    ("tfidf",TfidfTransformer()),
+                    ("clf", MultiOutputClassifier(LogisticRegression()))])
+	parameters = {
     "clf__estimator__C" : [0.1,1,10]
     }
-    model = GridSearchCV(pipeline, param_grid=parameters, n_jobs=-1, cv=3, verbose=2)
-    return model
+	model = GridSearchCV(pipeline, param_grid=parameters, n_jobs=-1, cv=3, verbose=2)
+	return model
 
 def metrics(y_true, y_pred):
 	"""
@@ -111,31 +108,31 @@ def metrics(y_true, y_pred):
 		a pandas dataframe of precision, recall, fbeta-score, and accuracy
 	"""
 
-    labels = []
-    precision=[]
-    recall=[]
-    fbeta_score=[]
-    accuracy=[]
+	labels = []
+	precision=[]
+	recall=[]
+	fbeta_score=[]
+	accuracy=[]
     
-    target_names=['class0','class1']      
+	target_names=['class0','class1']      
     
-    for i in range(y_true.shape[1]):
-        labels.append(y_true.columns.tolist()[i])
+	for i in range(y_true.shape[1]):
+		labels.append(y_true.columns.tolist()[i])
         
-        report=classification_report(y_true.iloc[:,i],y_pred[:,i], target_names=target_names)
+		report=classification_report(y_true.iloc[:,i],y_pred[:,i], target_names=target_names)
         
-        precision.append(float(report[-40:-30].strip()))
-        recall.append(float(report[-30:-20].strip()))
-        fbeta_score.append(float(report[-20:-10].strip()))
+		precision.append(float(report[-40:-30].strip()))
+		recall.append(float(report[-30:-20].strip()))
+		fbeta_score.append(float(report[-20:-10].strip()))
         
-        accuracy.append(accuracy_score(y_true.iloc[:,i],y_pred[:,i]))    
+		accuracy.append(accuracy_score(y_true.iloc[:,i],y_pred[:,i]))    
     
-    metrics_df = pd.DataFrame(data = {'Precision':precision,'Recall':recall,'F1-Score':fbeta_score, 'Accuracy': accuracy}, index = labels)
-    return metrics_df
+	metrics_df = pd.DataFrame(data = {'Precision':precision,'Recall':recall,'F1-Score':fbeta_score, 'Accuracy': accuracy}, index = labels)
+	return metrics_df
 
 
 def evaluate_model(model, X_test, Y_test, category_names):
-    """
+	"""
 	evaluate the performance of the machine learning pipeline on test data
 	
 	Args:
@@ -145,12 +142,12 @@ def evaluate_model(model, X_test, Y_test, category_names):
 		category_names: labels
 	"""
 	# predict target using the training model
-    Y_pred = model.predict(X_test)
-
-    # print classification report
-    metrics_df = metrics(Y_test, Y_pred)
-    print(metrics_df)
-    print("F1 score mean : ", metrics_df['F1-Score'].mean())
+	Y_pred = model.predict(X_test)
+    
+	# print classification report
+	metrics_df = metrics(Y_test, Y_pred)
+	print(metrics_df)
+	print("F1 score mean : ", metrics_df['F1-Score'].mean())
 
 
 def save_model(model, model_filepath):
@@ -158,28 +155,28 @@ def save_model(model, model_filepath):
 
 
 def main():
-    if len(sys.argv) == 3:
-        database_filepath, model_filepath = sys.argv[1:]
-        print('Loading data...\n    DATABASE: {}'.format(database_filepath))
-        X, Y, category_names = load_data(database_filepath)
-        X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2)
+	if len(sys.argv) == 3:
+		database_filepath, model_filepath = sys.argv[1:]
+		print('Loading data...\n    DATABASE: {}'.format(database_filepath))
+		X, Y, category_names = load_data(database_filepath)
+		X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2)
         
-        print('Building model...')
-        model = build_model()
+		print('Building model...')
+		model = build_model()
         
-        print('Training model...')
-        model.fit(X_train, Y_train)
+		print('Training model...')
+		model.fit(X_train, Y_train)
         
-        print('Evaluating model...')
-        evaluate_model(model, X_test, Y_test, category_names)
+		print('Evaluating model...')
+		evaluate_model(model, X_test, Y_test, category_names)
 
-        print('Saving model...\n    MODEL: {}'.format(model_filepath))
-        save_model(model, model_filepath)
+		print('Saving model...\n    MODEL: {}'.format(model_filepath))
+		save_model(model, model_filepath)
 
-        print('Trained model saved!')
+		print('Trained model saved!')
 
-    else:
-        print('Please provide the filepath of the disaster messages database '\
+	else:
+		print('Please provide the filepath of the disaster messages database '\
               'as the first argument and the filepath of the pickle file to '\
               'save the model to as the second argument. \n\nExample: python '\
               'train_classifier.py ../data/DisasterResponse.db classifier.pkl')
