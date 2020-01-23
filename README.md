@@ -1,29 +1,47 @@
 # Disaster Response Pipeline
-### Disaster Response Pipelines Built for Data Scientist Nanodegree on Udacity
-
-#### Ronghui Zhou; zhou.uf@gmail.com; Jan. 2020 
-[LinkedIn](https://www.linkedin.com/in/ronghuizhou/)
+### Data Scientist Nanodegree on [Udacity](https://www.udacity.com/); Data source from [Figure Eight](https://www.figure-eight.com/)
 
 
-The screen shots of the web app are below:
+#### Author: [Ronghui Zhou](https://www.linkedin.com/in/ronghuizhou/); Jan. 2020     
 
-**_Screenshot 1: overview of training dataset_**
+## **Motivation**
+Following natural disasters, there are usually tons of overwhelming messages. The goal of this project is to build a data processing and interpretation pipeline to speed up the resource allocation process. Time is life!
 
-![Overview of training dataset](/app/screenshots/overview_of_training_dataset.png)
+## **1. Installation**
+   Clone this GIT repository:
 
-**_Screenshot 2: classify message_**
+          git clone https://github.com/RonghuiZhou/Disaster_Response_Pipeline.git
 
-![Classify message](/app/screenshots/classify_message.png)
 
-<a id='files'></a>
 
+## **2. Instructions:**
+
+- Step 1: Run the followihng commands in the project's root directory to set up your database and model.      
+          1.1: Run ETL pipeline which cleans the data and stores in the database:     
+                  ```python
+                     data/process_data.py data/messages.csv data/categories.csv data/DisasterResponse.db                        
+                  ```                            
+          1.2: Run ML pipeline which trains classifier and saves the model:            
+                  ```python
+                     models/strain_classifier.py data/DisasterResponse.db models/classifier.pkl
+                  ```          
+- Step 2: Run the following command to run your web app:         
+        ```python
+        app/run.py
+        ```
+
+- Step 3: Go to http://localhost:2020
+
+
+
+## **3. File structure**
 <pre>
-.
+
 ├── app
 │   ├── run.py--------------------------------------# flask file to run app
 │   ├── screenshots
-│ 	│	├── overview_of_training_dataset.png--------# screenshot of web app: overview of training dataset
-│   │ 	└──	classify_message.png--------------------# screenshot of web app: classify message
+│   │	├── overview_of_training_dataset.png--------# screenshot of web app: overview of training dataset
+│   │ 	└── classify_message.png--------------------# screenshot of web app: classify message
 │   └── templates
 │       ├── go.html---------------------------------# classification result page of web app
 │       └── master.html-----------------------------# main page of web app
@@ -41,5 +59,16 @@ The screen shots of the web app are below:
 
 </pre>
 
+## **4. Screenshots:**
 
-## Instructions:
+The screenshots of the web app are below:
+
+**_Screenshot 1: overview of training dataset_**
+
+![Overview of training dataset](/app/screenshots/overview_of_training_dataset.png)
+
+**_Screenshot 2: classify message_**
+
+![Classify message](/app/screenshots/classify_message.png)
+
+
