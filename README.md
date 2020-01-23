@@ -9,7 +9,7 @@ Following natural disasters, there are usually tons of overwhelming messages. Th
 
 ## **1. Installation**
    1.1 Install [Anaconda](https://www.anaconda.com/) if it is not installed, go to step 1.2 otherwise  
-   1.2 Update all libraries in Anaconda Prompt  
+   1.2 Update all libraries in Anaconda Prompt (see library_requirement.txt for a complete list of libraries)  
 				```
                 conda update -all                           
                 ```  
@@ -43,6 +43,10 @@ Following natural disasters, there are usually tons of overwhelming messages. Th
 ## **3. File structure**
 <pre>
 
+├──	README.md---------------------------------------# Read this file for all details
+│
+├──	library_requirement.txt-------------------------# A list of libraries in the environment
+│
 ├── app
 │   ├── run.py--------------------------------------# flask file to run app
 │   ├── screenshots
@@ -62,6 +66,8 @@ Following natural disasters, there are usually tons of overwhelming messages. Th
 ├── notebook
 │   ├── ETL Pipeline Preparation.ipynb--------------# Jupyter notebook for ETL 
 │   └── ML Pipeline Preparation.ipynb---------------# Jupyter notebook for ML
+
+
 
 </pre>
 
