@@ -20,7 +20,7 @@ Following natural disasters, there are usually tons of overwhelming messages. Th
    1.4 Delete (or move to some other place) these two files: data/DisasterResponse.db & models/classifier.pkl
       
 
-## **2. Instructions:**
+## **2. How to run:**
 
 - Step 1: Run the followihng commands in the project's root directory to set up your database and model.      
           1.1: Run ETL pipeline which cleans the data and stores in the database:     
@@ -43,9 +43,9 @@ Following natural disasters, there are usually tons of overwhelming messages. Th
 ## **3. File structure**
 <pre>
 
-├──	README.md---------------------------------------# Read this file for all details
+├──README.md---------------------------------------# Read this file for all details
 │
-├──	library_requirement.txt-------------------------# A list of libraries in the environment
+├──library_requirement.txt-------------------------# A list of libraries in the environment
 │
 ├── app
 │   ├── run.py--------------------------------------# flask file to run app
