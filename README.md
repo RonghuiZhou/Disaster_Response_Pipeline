@@ -1,8 +1,8 @@
 # Disaster Response Pipeline
-### Data Scientist Nanodegree on [Udacity](https://www.udacity.com/); Data source from [Figure Eight](https://www.figure-eight.com/)
+### Data Scientist Nanodegree on [Udacity](https://www.udacity.com/); Training Data from [Figure Eight](https://www.figure-eight.com/)
 
 
-#### Author: [Ronghui Zhou](https://www.linkedin.com/in/ronghuizhou/); Jan. 2020     
+#### Author: [Ronghui Zhou](https://www.linkedin.com/in/ronghuizhou/); Jan. 23, 2020     
 
 ## **Motivation**
 Following natural disasters, there are usually tons of overwhelming messages. The goal of this project is to build a data processing and interpretation pipeline to speed up the resource allocation process. Time is life!
