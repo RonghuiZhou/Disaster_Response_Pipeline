@@ -8,8 +8,8 @@
 Following natural disasters, there are usually tons of overwhelming messages. The goal of this project is to build a data processing and interpretation pipeline to speed up the resource allocation process. Time is life!
 
 ## **1. Installation**
-   1.1 Install [Anaconda](https://www.anaconda.com/) if it is not installed, go to step 1.2 otherwise
-   1.2 Update all libraries in Anaconda Prompt
+   1.1 Install [Anaconda](https://www.anaconda.com/) if it is not installed, go to step 1.2 otherwise  
+   1.2 Update all libraries in Anaconda Prompt  
 				```
                 conda update -all                           
                 ```  
