@@ -22,15 +22,15 @@ app = Flask(__name__)
 
 def tokenize(text):
     """
-	process text data: text extraction, tokenization, lemmatization, & stopwords removal
-	Args:
-		text: input the
-	
-	Returns:
-		clean tokens
-	
-	"""
-	 
+    process text data: text extraction, tokenization, lemmatization, & stopwords removal
+    Args:
+        text: input the
+
+    Returns:
+        clean tokens
+
+    """
+
     # extrac text based on the pattern
     text = re.sub(r"[^a-zA-Z0-9]", " ", text)
     
@@ -38,7 +38,7 @@ def tokenize(text):
     tokens = word_tokenize(text)
     tokens = [w for w in tokens if w not in stopwords.words("english")]
     
-	# text normalization: get the root stem
+    # text normalization: get the root stem
     lemmatizer = WordNetLemmatizer()
 
     clean_tokens = []
@@ -279,7 +279,7 @@ def index():
         
         
         
-    ]		  
+    ] 
 
     # encode plotly graphs in JSON
     ids = ["graph-{}".format(i) for i, _ in enumerate(graphs)]
